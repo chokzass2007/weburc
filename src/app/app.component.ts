@@ -1,28 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'My Data Table';
   groups: { [key: string]: any[] } = {};
   filteredGroups: { [key: string]: any[] } = {};
 
   searchAddress: string = '';
   descriptions: { [key: number]: string } = {
-    121: 'โชคสุดหล่อ',
-    122: 'งานไว',
+    121: 'Description for address 121',
+    122: 'Description for address 122',
     // เพิ่มคำอธิบายที่นี่
   };
 
   rows: { data120?: any, data320?: any, data420?: any }[] = [];
+  private socket?: WebSocket;
 
-  private socket!: WebSocket;
-
-  constructor() {
+  ngOnInit() {
     this.getAllUser();
+  }
+
+  ngOnDestroy() {
+    // ปิดการเชื่อมต่อ WebSocket เมื่อคอมโพเนนต์ถูกทำลาย
+    if (this.socket) {
+      this.socket.close();
+    }
   }
 
   getAllUser() {
@@ -30,7 +36,7 @@ export class AppComponent {
 
     this.socket.onopen = () => {
       console.log('WebSocket connection established');
-      this.socket.send(JSON.stringify({ action: 'getAllUser' }));
+      this.socket?.send(JSON.stringify({ action: 'getAllUser' }));
     };
 
     this.socket.onmessage = (event) => {
@@ -45,7 +51,6 @@ export class AppComponent {
         };
 
         this.filterGroup();
-
       } catch (error) {
         console.error('Error parsing message from server', error);
         this.groups = {};
@@ -64,17 +69,17 @@ export class AppComponent {
 
   populateRows() {
     const maxLength = Math.max(
-      this.filteredGroups['data120'].length,
-      this.filteredGroups['data320'].length,
-      this.filteredGroups['data420'].length
+      this.filteredGroups['data120']?.length || 0,
+      this.filteredGroups['data320']?.length || 0,
+      this.filteredGroups['data420']?.length || 0
     );
 
     this.rows = [];
     for (let i = 0; i < maxLength; i++) {
       this.rows.push({
-        data120: this.filteredGroups['data120'][i],
-        data320: this.filteredGroups['data320'][i],
-        data420: this.filteredGroups['data420'][i]
+        data120: this.filteredGroups['data120']?.[i],
+        data320: this.filteredGroups['data320']?.[i],
+        data420: this.filteredGroups['data420']?.[i]
       });
     }
   }
@@ -100,6 +105,6 @@ export class AppComponent {
   }
 
   getDescription(address: number): string {
-    return this.descriptions[address] || '';
+    return this.descriptions[address] || 'No description available';
   }
 }

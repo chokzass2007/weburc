@@ -1,18 +1,12 @@
-import { enableProdMode, importProvidersFrom } from '@angular/core';
-import { bootstrapApplication } from '@angular/platform-browser';
-import { Test01Component } from './app/test01/test01.component';
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
-import { FormsModule } from '@angular/forms';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
 
 if (environment.production) {
   enableProdMode();
 }
 
-bootstrapApplication(Test01Component, {
-  providers: [
-    importProvidersFrom(FormsModule),
-    provideRouter([], withComponentInputBinding())
-  ]
-})
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)  // เปลี่ยนจาก Test01Component เป็น AppModule
   .catch(err => console.error(err));

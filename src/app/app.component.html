@@ -1,55 +1,53 @@
 <div class="container mt-4">
-    <h1>{{ title }}</h1>
-    <div class="row mb-3">
-      <div class="col-md-6">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search by Address"
-          [(ngModel)]="searchAddress"
-          (ngModelChange)="filterGroup()"
-        />
-      </div>
-    </div>
-
-    
-    <!-- Main Table Container -->
-    <div class="table-container">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th colspan="3">Data 120</th>
-            <th colspan="3">Data 320</th>
-            <th colspan="3">Data 420</th>
-          </tr>
-          <tr>
-            <th>Address</th>
-            <th>Value</th>
-            <th>Description</th>
-            <th>Address</th>
-            <th>Value</th>
-            <th>Description</th>
-            <th>Address</th>
-            <th>Value</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let row of rows">
-            <td *ngIf="row.data120">{{ row.data120.address }}</td>
-            <td *ngIf="row.data120">{{ row.data120.value }}</td>
-            <td *ngIf="row.data120">{{ getDescription(row.data120.address) }}</td>
-  
-            <td *ngIf="row.data320">{{ row.data320.address }}</td>
-            <td *ngIf="row.data320">{{ row.data320.value }}</td>
-            <td *ngIf="row.data320">{{ getDescription(row.data320.address) }}</td>
-  
-            <td *ngIf="row.data420">{{ row.data420.address }}</td>
-            <td *ngIf="row.data420">{{ row.data420.value }}</td>
-            <td *ngIf="row.data420">{{ getDescription(row.data420.address) }}</td>
-          </tr>
-        </tbody>
-      </table>
+  <h1>{{ title }}</h1>
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by Address"
+        [(ngModel)]="searchAddress"
+        (ngModelChange)="filterGroup()"
+      />
     </div>
   </div>
-  
+
+  <!-- Main Table Container -->
+  <div class="table-container">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="3">Data 120</th>
+          <th colspan="3">Data 320</th>
+          <th colspan="3">Data 420</th>
+        </tr>
+        <tr>
+          <th>Address</th>
+          <th>Value</th>
+          <th>Description</th>
+          <th>Address</th>
+          <th>Value</th>
+          <th>Description</th>
+          <th>Address</th>
+          <th>Value</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows">
+          <td *ngIf="row.data120">{{ row.data120.address }}</td>
+          <td *ngIf="row.data120">{{ row.data120.value }}</td>
+          <td *ngIf="row.data120">{{ getDescription(row.data120.address) }}</td>
+
+          <td *ngIf="row.data320">{{ row.data320.address }}</td>
+          <td *ngIf="row.data320">{{ row.data320.value }}</td>
+          <td *ngIf="row.data320">{{ getDescription(row.data320.address) }}</td>
+
+          <td *ngIf="row.data420">{{ row.data420.address }}</td>
+          <td *ngIf="row.data420">{{ row.data420.value }}</td>
+          <td *ngIf="row.data420">{{ getDescription(row.data420.address) }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
