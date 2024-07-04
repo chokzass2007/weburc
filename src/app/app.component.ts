@@ -124,19 +124,18 @@ export class AppComponent implements OnInit {
   groupKeys: string[] = [];
 
   ngOnInit() {
-    this.getAllUser();
+    this.connectWebSocket();
   }
 
-  getAllUser() {
+  connectWebSocket() {
     this.socket = new WebSocket('ws://192.0.6.111:3000');
 
     this.socket.onopen = () => {
       console.log('WebSocket connection established');
-      this.socket.send(JSON.stringify({ action: 'getAllUser' }));
+      this.getAllUser();
     };
 
     this.socket.onmessage = (event) => {
-      console.log('Message from server', event.data);
       try {
         const data = JSON.parse(event.data);
 
@@ -157,9 +156,8 @@ export class AppComponent implements OnInit {
           });
         }
 
-        // อัปเดต groupKeys
+        // อัปเดต groupKeys และ filteredGroups
         this.groupKeys = Object.keys(this.groups);
-
         this.filterGroup();
 
       } catch (error) {
@@ -175,7 +173,21 @@ export class AppComponent implements OnInit {
 
     this.socket.onclose = (event) => {
       console.log('WebSocket connection closed', event);
+      if (!event.wasClean) {
+        console.log('Attempting to reconnect...');
+        setTimeout(() => {
+          this.connectWebSocket();
+        }, 5000); // เชื่อมต่อใหม่หลังจาก 5 วินาที
+      }
     };
+  }
+
+  getAllUser() {
+    if (this.socket && this.socket.readyState === WebSocket.OPEN) {
+      this.socket.send(JSON.stringify({ action: 'getAllUser' }));
+    } else {
+      console.warn('WebSocket connection is not open.');
+    }
   }
 
   populateRows() {
