@@ -13,41 +13,27 @@
   </div>
 
   <!-- Main Table Container -->
-  <div class="table-container">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th colspan="3">Data 120</th>
-          <th colspan="3">Data 320</th>
-          <th colspan="3">Data 420</th>
-        </tr>
-        <tr>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th *ngFor="let key of groupKeys" colspan="3" class="group-header">{{ getGroupDescription(key) }}</th>
+      </tr>
+      <tr>
+        <ng-container *ngFor="let key of groupKeys">
           <th>Address</th>
           <th>Value</th>
           <th>Description</th>
-          <th>Address</th>
-          <th>Value</th>
-          <th>Description</th>
-          <th>Address</th>
-          <th>Value</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let row of rows">
-          <td *ngIf="row.data120">{{ row.data120.address }}</td>
-          <td *ngIf="row.data120">{{ row.data120.value }}</td>
-          <td *ngIf="row.data120">{{ getDescription(row.data120.address) }}</td>
-
-          <td *ngIf="row.data320">{{ row.data320.address }}</td>
-          <td *ngIf="row.data320">{{ row.data320.value }}</td>
-          <td *ngIf="row.data320">{{ getDescription(row.data320.address) }}</td>
-
-          <td *ngIf="row.data420">{{ row.data420.address }}</td>
-          <td *ngIf="row.data420">{{ row.data420.value }}</td>
-          <td *ngIf="row.data420">{{ getDescription(row.data420.address) }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+        </ng-container>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of rows">
+        <ng-container *ngFor="let key of groupKeys">
+          <td [ngClass]="{'bg-warning': row.changed[key]?.address}" *ngIf="row[key]" class="group-cell">{{ row[key].address }}</td>
+          <td [ngClass]="{'bg-warning': row.changed[key]?.value}" *ngIf="row[key]" class="group-cell">{{ row[key].value }}</td>
+          <td [ngClass]="{'bg-warning': row.changed[key]?.description}" *ngIf="row[key]" class="group-cell description-cell">{{ getDescription(row[key].address) }}</td>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
 </div>
