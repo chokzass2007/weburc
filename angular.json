@@ -24,7 +24,9 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/web.config",
+              "src/.htaccess"
             ],
             "styles": [
               "src/styles.css"
@@ -47,6 +49,10 @@
               ],
               "outputHashing": "all",
               "baseHref": "/urcweb/"
+
+
+
+              
             },
             "development": {
               "optimization": false,
@@ -88,7 +94,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public"             
               }
             ],
             "styles": [

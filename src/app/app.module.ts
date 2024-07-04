@@ -3,9 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ChillerComponent } from './chiller/chiller.component';
 @NgModule({
   declarations: [
     AppComponent,
+    ChillerComponent,
     // ลบ Test01Component ออกถ้าคุณยังเห็นอยู่
   ],
   imports: [
