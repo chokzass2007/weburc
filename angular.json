@@ -45,7 +45,8 @@
                   "maximumError": "4kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/urcweb/"
             },
             "development": {
               "optimization": false,
