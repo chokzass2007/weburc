@@ -24,7 +24,9 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/web.config",
+              "src/.htaccess"
             ],
             "styles": [
               "src/styles.css"
@@ -45,7 +47,12 @@
                   "maximumError": "4kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/urcweb/"
+
+
+
+              
             },
             "development": {
               "optimization": false,
@@ -53,8 +60,7 @@
               "sourceMap": true,
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.development.ts"
+
                 }
               ]
             }
@@ -87,7 +93,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public"             
               }
             ],
             "styles": [

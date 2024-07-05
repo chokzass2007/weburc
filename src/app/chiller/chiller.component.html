@@ -1,0 +1,42 @@
+
+  
+  <div class="container mt-4">
+    <h1>{{ title }}</h1>
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by Address"
+          [(ngModel)]="searchAddress"
+          (ngModelChange)="filterGroup()"
+        />
+      </div>
+    </div>
+  
+    <!-- Main Table Container -->
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th *ngFor="let key of groupKeys" colspan="3" class="group-header">{{ getGroupDescription(key) }}</th>
+        </tr>
+        <tr>
+          <ng-container *ngFor="let key of groupKeys">
+            <th>Address</th>
+            <th>Value</th>
+            <th>Description</th>
+          </ng-container>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows">
+          <ng-container *ngFor="let key of groupKeys">
+            <td [ngClass]="{'bg-warning': row.changed[key]?.address}" *ngIf="row[key]" class="group-cell">{{ row[key].address }}</td>
+            <td [ngClass]="{'bg-warning': row.changed[key]?.value}" *ngIf="row[key]" class="group-cell">{{ row[key].value }}</td>
+            <td [ngClass]="{'bg-warning': row.changed[key]?.description}" *ngIf="row[key]" class="group-cell description-cell">{{ getDescription(row[key].address) }}</td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
