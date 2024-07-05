@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
 import { ChillerComponent } from './chiller/chiller.component';
 import { LDloginComponent } from './loading/ldlogin/ldlogin.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './auth.service'; // เพิ่มการนำเข้า
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,9 +17,10 @@ import { LDloginComponent } from './loading/ldlogin/ldlogin.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule, 
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]  // ใช้ AppComponent เป็นคอมโพเนนต์เริ่มต้น
 })
 export class AppModule { }

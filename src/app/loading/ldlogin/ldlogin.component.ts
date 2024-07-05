@@ -1,17 +1,20 @@
-// loading/ldlogin/ldlogin.component.ts
-import { Component } from '@angular/core';
+// src/app/loading/ldlogin/ldlogin.component.ts
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-ldlogin',
   templateUrl: './ldlogin.component.html',
   styleUrls: ['./ldlogin.component.css']
 })
-export class LDloginComponent {
-  username: string = '';
-  password: string = '';
+export class LDloginComponent implements OnInit {
+  user: any;
 
-  onSubmit() {
-    // เขียน logic การ login ที่นี่
-    console.log('Login form submitted', this.username, this.password);
+  constructor(private authService: AuthService) { }
+
+  ngOnInit(): void {
+    this.authService.getUser().subscribe(data => {
+      this.user = data;
+    });
   }
 }
