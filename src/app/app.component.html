@@ -2,4 +2,8 @@
   <a routerLink="/">Home</a>
   <a routerLink="/Chiller">Chiller</a>
 </nav> -->
+<div *ngIf="showError" style="color: rgb(0, 0, 0);">
+  <h1 style="color: rgb(255, 0, 0);">404 - File or directory not found.</h1>
+  <a>The resource you are looking for might have been removed, had its name changed, or is temporarily unavailable.</a>
+</div>
 <router-outlet></router-outlet>
