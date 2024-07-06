@@ -1,20 +1,31 @@
-// src/app/loading/ldlogin/ldlogin.component.ts
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../auth.service';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-ldlogin',
-  templateUrl: './ldlogin.component.html',
-  styleUrls: ['./ldlogin.component.css']
+  templateUrl: './LDlogin.component.html',
+  styleUrls: ['./LDlogin.component.css']
 })
-export class LDloginComponent implements OnInit {
-  user: any;
+export class LDloginComponent {
+  username!: string;
+  password!: string;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit(): void {
-    this.authService.getUser().subscribe(data => {
-      this.user = data;
-    });
+  onSubmit() {
+    this.authService.login(this.username, this.password).subscribe(
+      (response: any) => {
+        if (response.tokenloading) {
+          alert(`ยินดีต้อนรับ ${this.username}`);
+          this.router.navigate(['/loading/ldmain']);
+        } else {
+          alert('คุณไม่มีสิทเข้าใช้งานโปรแกรม');
+        }
+      },
+      (error) => {
+        alert('ล็อกอินล้มเหลว: ' + error.message);
+      }
+    );
   }
 }

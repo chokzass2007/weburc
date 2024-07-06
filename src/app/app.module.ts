@@ -6,13 +6,12 @@ import { AppRoutingModule } from './app.routes';
 import { ChillerComponent } from './chiller/chiller.component';
 import { LDloginComponent } from './loading/ldlogin/ldlogin.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthService } from './auth.service'; // เพิ่มการนำเข้า
+import { AuthService } from './loading/ldlogin/auth.service'; // เพิ่มการนำเข้า
 @NgModule({
   declarations: [
     AppComponent,
     ChillerComponent,
     LDloginComponent,
-    // ลบ Test01Component ออกถ้าคุณยังเห็นอยู่
   ],
   imports: [
     BrowserModule,

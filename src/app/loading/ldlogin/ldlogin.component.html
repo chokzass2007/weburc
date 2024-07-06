@@ -1,6 +1,44 @@
-<!-- src/app/loading/ldlogin/ldlogin.component.html -->
-<div *ngIf="user">
-  <h1>Welcome, {{ user.name }}</h1>
+<!-- LDlogin.component.html -->
+<div class="login-container">
+  <h2 class="login-title">Login</h2> <!-- ย้ายแท็ก h2 มาวางไว้ตรงนี้ -->
+  <div class="login-card">
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input 
+          type="text"
+          id="username"
+          name="dummy-username"
+          [(ngModel)]="username"
+          required
+          class="form-control"
+          placeholder="ชื่อผู้ใช้" 
+          autocomplete="off"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="dummy-password"
+          [(ngModel)]="password"
+          required
+          class="form-control"
+          placeholder="รหัสผ่าน" 
+          autocomplete="off"
+        />
+      </div>
+      <button type="submit" class="login-button" [disabled]="!loginForm.valid">
+        Login
+      </button>
+    </form>
+  </div>
 </div>
-
-test
+<script>
+  // เปลี่ยนชื่อฟิลด์แบบไดนามิกหลังจากโหลดหน้าเว็บ
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('username').setAttribute('name', 'username');
+    document.getElementById('password').setAttribute('name', 'password');
+  });
+</script>

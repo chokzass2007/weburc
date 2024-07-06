@@ -1,5 +1,64 @@
-/* src/app/loading/ldlogin/ldlogin.component.css */
-h1 {
-  color: #fff;
+/* LDlogin.component.css */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.login-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 6rem; /* เพิ่มขนาด padding */
+  border-radius: 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* เพิ่มขนาดของ shadow */
+  width: 350px; /* เพิ่มขนาดความกว้าง */
+  height: 250px; /* เพิ่มขนาดความสูง */
   text-align: center;
+}
+
+.login-title {
+  margin-bottom: 1.5rem; /* เพิ่มระยะห่างระหว่าง title กับ form */
+  font-size: 2rem; /* เพิ่มขนาดตัวอักษร */
+}
+
+.form-group {
+  margin-bottom: 1.5rem; /* เพิ่มระยะห่างระหว่าง form-group */
+  text-align: left;
+  width: 100%; /* ทำให้ form-group ขยายเต็มความกว้างของ login-card */
+}
+
+.form-control {
+  width: 100%; /* ขยายความกว้างของ input */
+  padding: 0.75rem; /* เพิ่มขนาด padding */
+  border: 1px solid #ccc;
+  border-radius: 6px; /* เพิ่มความโค้งมนของ input */
+  font-size: 1rem; /* เพิ่มขนาดตัวอักษรใน input */
+}
+
+.login-button {
+  width: 80%; /* ขยายความกว้างของปุ่ม */
+  height: 40px; /* เพิ่มความสูงของปุ่ม */
+  padding: 0.75rem;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 8px; /* เปลี่ยนขนาดของ border-radius */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px; /* เพิ่มระยะห่างจาก form-group */
+  font-size: 1rem; /* เพิ่มขนาดตัวอักษรของปุ่ม */
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+.login-button:disabled {
+  background-color: #2f2b2b;
+  cursor: not-allowed;
 }
