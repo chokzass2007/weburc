@@ -13,7 +13,7 @@
           required
           class="form-control"
           placeholder="ชื่อผู้ใช้" 
-          autocomplete="off"
+       
         />
       </div>
       <div class="form-group">
@@ -26,7 +26,7 @@
           required
           class="form-control"
           placeholder="รหัสผ่าน" 
-          autocomplete="off"
+         
         />
       </div>
       <button type="submit" class="login-button" [disabled]="!loginForm.valid">
@@ -36,6 +36,7 @@
   </div>
 </div>
 <script>
+  // autocomplete="off"
   // เปลี่ยนชื่อฟิลด์แบบไดนามิกหลังจากโหลดหน้าเว็บ
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('username').setAttribute('name', 'username');
