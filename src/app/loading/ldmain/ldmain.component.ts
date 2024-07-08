@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class LDmainComponent implements OnInit, OnDestroy {
   usernameAD: string = '';  // กำหนดค่าเริ่มต้น
   tokenloading: string = '';
-  private idleTimeout = 5000; // 5 วินาที
+  private idleTimeout = 55000; // 5 วินาที
   private idleTimer: any;
 
   constructor(private router: Router) {}
