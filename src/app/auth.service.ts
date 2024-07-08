@@ -19,10 +19,14 @@ export class AuthService {
 
         sessionStorage.setItem('usernameAD', response.username || '');
         sessionStorage.setItem('tokenLoading', response.tokenLoading || '');
+        sessionStorage.setItem('displayNameLD', response.displayNameLD  || '');
 
-
-
-
+        //ตรวจสอบตัวแปลที่รับมาจาก API
+        // console.log(response);
+        // console.log(sessionStorage.getItem('displayNameLD'));
+        // console.log(response.username);
+        // console.log(response.tokenLoading);
+        // console.log(response.displayNameLD);
 
 
 

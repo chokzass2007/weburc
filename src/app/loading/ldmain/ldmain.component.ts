@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 export class LDmainComponent implements OnInit, OnDestroy {
   usernameAD: string = '';  // กำหนดค่าเริ่มต้น
   tokenloading: string = '';
-  private idleTimeout = 55000; // 5 วินาที
+  displayNameLD: string = '';
+  private idleTimeout = 505000; // 5 วินาที
   private idleTimer: any;
 
   constructor(private router: Router) {}
@@ -18,7 +19,8 @@ export class LDmainComponent implements OnInit, OnDestroy {
     // ตรวจสอบค่า tokenLoading และเปลี่ยนเส้นทางหากไม่มีสิทเข้าใช้งาน
     this.usernameAD = sessionStorage.getItem('usernameAD') || '';
     this.tokenloading = sessionStorage.getItem('tokenLoading') || '';  
-
+    this.displayNameLD = sessionStorage.getItem('displayNameLD') || '';  
+    
     if (this.tokenloading === '0' || !this.tokenloading) {
       alert('คุณไม่มีสิทเข้าใช้งานโปรแกรม');
       this.router.navigate(['/loading/ldlogin']);

@@ -16,8 +16,8 @@
   padding: 6rem; /* เพิ่มขนาด padding */
   border-radius: 40px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* เพิ่มขนาดของ shadow */
-  width: 350px; /* เพิ่มขนาดความกว้าง */
-  height: 250px; /* เพิ่มขนาดความสูง */
+  width: 500px; /* เพิ่มขนาดความกว้าง */
+  height: 350px; /* เพิ่มขนาดความสูง */
   text-align: center;
 }
 
