@@ -75,4 +75,9 @@ export class LDmainComponent implements OnInit, OnDestroy {
     sessionStorage.removeItem('tokenLoading');
     this.router.navigate(['/loading/ldlogin']);
   }
+
+  toggleLanguage(){
+    console.log('Language toggled');
+  }
+
 }

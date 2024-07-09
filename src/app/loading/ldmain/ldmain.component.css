@@ -1,30 +1,88 @@
-.main-container {
+/* Custom styles for vertical navigation */
+.navbar {
+    background-color: #ffffff; /* เปลี่ยนสีพื้นหลังของ navbar */
+    width: 80px; /* ปรับความกว้างของ nav */
+    height: 100vh; /* ให้ nav เต็มความสูงของหน้าจอ */
+    position: fixed; /* ให้ nav ติดขอบซ้ายของหน้าจอ */
+    top: 0;
+    left: 0;
+}
+
+/* Align Hamburger Icon to the left */
+.navbar-toggler {
+    margin-left: 0; /* Aligns Hamburger Icon to the left edge */
+}
+
+/* Keep the Home Icon at the bottom of the nav */
+.navbar-brand {
+    margin-top: auto; /* Pushes Home Icon to the bottom */
+}
+
+/* Styling for the Logout Button */
+.btn-outline-danger {
+    width: 100%; /* ปรับขนาดปุ่ม logout ให้เต็มความกว้าง */
+    margin-top: 1rem; /* เพิ่มระยะห่างจากเนื้อหา */
+}
+
+/* Ensure that the Logout Button is displayed on mobile view */
+.d-lg-none {
+    display: block; /* Ensure the button is displayed on small screens */
+}
+
+/* Horizontal Navbar for Display Name */
+.navbar-fixed-top {
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* Keep Display Name Navbar fixed at the top */
+.navbar-light.fixed-top {
+    margin-left: 250px; /* Make space for the vertical navbar */
+    padding-top: 20px; /* Add space for the horizontal navbar */
+    padding-bottom: 20px; /* Add space for the horizontal navbar */
+}
+
+/* Main content styles */
+.main-content {
+    position: absolute;
+    top: 50;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  app-chiller {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+/* Ensure h1 is correctly styled */
+h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+.bg-light {
+    --bs-bg-opacity: 1;
+    background-color: rgb(230, 231, 233) !important;
+}
+
+.icon-circle {
+    width: 50px; /* ปรับขนาดของวงกลม */
+    height: 50px; /* ปรับขนาดของวงกลม */
+    border-radius: 50%; /* ทำให้เป็นวงกลม */
+    background-color: transparent; /* พื้นหลังโปร่งใส */
+    border: 3px solid black; /* ขอบสีดำ */
+    display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
 }
 
-.logout-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.logout-button:hover {
-    background-color: #c82333;
-}
-
-/* app/loading/ldmain/ldmain.component.css */
-.container {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.language-switcher {
+    margin-left: 1rem;
+    font-size: 1.5rem; /* ปรับขนาดตัวอักษรตามต้องการ */
 }

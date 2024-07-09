@@ -7,11 +7,13 @@ import { ChillerComponent } from './chiller/chiller.component';
 import { LDloginComponent } from './loading/ldlogin/ldlogin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth.service'; // เพิ่มการนำเข้า
+import { LDmainComponent } from './loading/ldmain/ldmain.component';
 @NgModule({
   declarations: [
     AppComponent,
     ChillerComponent,
     LDloginComponent,
+    LDmainComponent,
   ],
   imports: [
     BrowserModule,
