@@ -2,7 +2,7 @@
   "name": "urcweb-app",
   "version": "0.0.0",
   "scripts": {
-    "start": "ng serve --proxy-config proxy.conf.json --host 192.0.6.111 --port 81 --disable-host-check",
+    "start": "ng serve --proxy-config proxy.conf.json --host 192.0.6.111 --port 80 --disable-host-check",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

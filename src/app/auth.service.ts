@@ -11,7 +11,7 @@ export class AuthService {
 
   login(username: string, password: string): Observable<any> {
     const loginPayload = { username, password };
-    return this.http.post<any>('/api/login', loginPayload, { withCredentials: true }).pipe(
+    return this.http.post<any>('http://192.0.6.111:3001/api/login', loginPayload, { withCredentials: true }).pipe(
       tap((response) => {
         // ตรวจสอบ response และจัดเก็บค่า username และ tokenLoading
 
@@ -22,11 +22,11 @@ export class AuthService {
         sessionStorage.setItem('displayNameLD', response.displayNameLD  || '');
 
         //ตรวจสอบตัวแปลที่รับมาจาก API
-        // console.log(response);
-        // console.log(sessionStorage.getItem('displayNameLD'));
-        // console.log(response.username);
-        // console.log(response.tokenLoading);
-        // console.log(response.displayNameLD);
+        console.log(response);
+        console.log(sessionStorage.getItem('displayNameLD'));
+        console.log(response.username);
+        console.log(response.tokenLoading);
+        console.log(response.displayNameLD);
 
 
 

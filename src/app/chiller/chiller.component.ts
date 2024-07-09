@@ -129,7 +129,7 @@ export class ChillerComponent implements OnInit {
   }
 
   connectWebSocket() {
-    this.socket = new WebSocket('ws://192.0.6.111:3000');
+    this.socket = new WebSocket('ws://192.0.6.111:3001');
 
     this.socket.onopen = () => {
       console.log('WebSocket connection established');
