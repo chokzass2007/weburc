@@ -4,18 +4,24 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
 import { ChillerComponent } from './chiller/chiller.component';
+import { LDloginComponent } from './loading/ldlogin/ldlogin.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './auth.service'; // เพิ่มการนำเข้า
+import { LDmainComponent } from './loading/ldmain/ldmain.component';
 @NgModule({
   declarations: [
     AppComponent,
     ChillerComponent,
-    // ลบ Test01Component ออกถ้าคุณยังเห็นอยู่
+    LDloginComponent,
+    LDmainComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule, 
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]  // ใช้ AppComponent เป็นคอมโพเนนต์เริ่มต้น
 })
 export class AppModule { }

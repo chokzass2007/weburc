@@ -29,9 +29,14 @@
               "src/.htaccess"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -49,10 +54,6 @@
               ],
               "outputHashing": "all",
               "baseHref": "/urcweb/"
-
-
-
-              
             },
             "development": {
               "optimization": false,
@@ -60,7 +61,8 @@
               "sourceMap": true,
               "fileReplacements": [
                 {
-
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
               ]
             }
@@ -93,7 +95,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"             
+                "input": "public"
               }
             ],
             "styles": [
